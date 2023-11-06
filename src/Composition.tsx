@@ -1,28 +1,56 @@
-import {AbsoluteFill} from 'remotion';
-import {Logo} from './Logo';
-import {Subtitle} from './Subtitle';
-import {Title} from './Title';
-import {z} from 'zod';
-import {zColor} from '@remotion/zod-types';
+import { Intro } from './scenes/Intro';
+import { Report } from './scenes/Report';
+import {
+  linearTiming,
+  springTiming,
+  TransitionSeries,
+} from "@remotion/transitions";
+ 
+import { fade } from "@remotion/transitions/fade";
+import { wipe } from "@remotion/transitions/wipe";
+ 
 
-export const myCompSchema = z.object({
-	titleText: z.string(),
-	titleColor: zColor(),
-	logoColor: zColor(),
-});
 
-export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
-	titleText: propOne,
-	titleColor: propTwo,
-	logoColor: propThree,
-}) => {
-	return (
-		<AbsoluteFill className="bg-gray-100 items-center justify-center">
-			<div className="m-10" />
-			<Logo logoColor={propThree} />
-			<div className="m-3" />
-			<Title titleText={propOne} titleColor={propTwo} />
-			<Subtitle />
-		</AbsoluteFill>
-	);
+export const sceneDurationsInFrames = [
+	60,
+	60,
+]
+export const transDurationsInFrames = [
+	8,
+	8,
+]
+
+
+
+{/* <TransitionSeries.Transition
+					timing={springTiming({ durationInFrames: transDurationsInFrames[0] })}
+					presentation={fade()}
+				/>
+<TransitionSeries.Transition
+	timing={linearTiming({ durationInFrames: transDurationsInFrames[1]})}
+	presentation={wipe()}
+/> */}
+
+export const MyComposition: React.FC = () => {
+  return (
+			<TransitionSeries>
+
+				<TransitionSeries.Sequence durationInFrames={sceneDurationsInFrames[0]}>
+				<Intro date={new Date()}/>
+				</TransitionSeries.Sequence>
+				<TransitionSeries.Transition
+					timing={linearTiming({ durationInFrames: transDurationsInFrames[0]})}
+					presentation={wipe()}
+				/>
+
+			<TransitionSeries.Sequence durationInFrames={sceneDurationsInFrames[1]}>
+				<Report date={new Date()}/>
+				</TransitionSeries.Sequence>
+				<TransitionSeries.Transition
+					timing={linearTiming({ durationInFrames: transDurationsInFrames[1]})}
+					presentation={wipe()}
+				/>
+
+			</TransitionSeries>
+  );
 };

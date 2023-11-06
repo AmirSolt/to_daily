@@ -23,19 +23,21 @@
   "dependencies": {
     "@remotion/bundler": "4.0.63",
     "@remotion/cli": "4.0.63",
+    "@remotion/transitions": "^4.0.63",
     "@remotion/zod-types": "4.0.63",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "remotion": "4.0.63",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@remotion/eslint-config": "4.0.63",
+    "@remotion/tailwind": "4.0.63",
+    "@types/leaflet": "^1.9.7",
     "@types/react": "^18.0.26",
     "@types/web": "^0.0.86",
     "eslint": "^8.43.0",
     "prettier": "^2.8.8",
-    "@remotion/tailwind": "4.0.63",
     "typescript": "^4.9.4"
   },
   "packageManager": "npm@9.8.1"
