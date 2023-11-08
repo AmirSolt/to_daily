@@ -1,0 +1,49 @@
+import {interpolate, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
+import React from 'react';
+
+
+const startEnterFadePerc = 0.02;
+const endEnterFadePerc = 0.15;
+const startEndFadePerc = 0.85;
+const endEndFadePerc = 0.95;
+
+
+
+
+const Anim: React.FC<{
+	durationInFrames: number,
+  children:React.ReactNode,
+  targetHeightRatio:number,
+  animDelayPerc:number,
+	classOther:string,
+}> = ({durationInFrames, children, classOther, targetHeightRatio=0.5, animDelayPerc=0}) => {
+	const frame = useCurrentFrame();
+  const {width, height} = useVideoConfig();
+
+  const initY = Math.floor(height*0.5);
+  const targetY = Math.floor(height*(0.5-targetHeightRatio));
+
+	const yTrans = interpolate(frame, [
+		Math.floor(startEnterFadePerc*durationInFrames) + Math.floor(animDelayPerc*durationInFrames),
+		Math.floor(endEnterFadePerc*durationInFrames) + Math.floor(animDelayPerc*durationInFrames),
+		Math.floor(startEndFadePerc*durationInFrames),
+		Math.floor(endEndFadePerc*durationInFrames),
+	], [initY, targetY, targetY, initY], {
+    easing: Easing.bezier(.05,.32,.83,.79),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	return (
+		<div
+      style={{transform: `translateY(${yTrans}px)`}}
+				className={classOther}
+		>
+      {children}
+     
+    </div>
+	);
+};
+
+
+
+export default Anim;
