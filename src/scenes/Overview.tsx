@@ -1,12 +1,12 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import {footerFont, primary, secondary, subTitleFont, tertiary, titleFont} from '../global/stylesConfig';
-import Icon from '../comp/Icon';
 import Card from '../comp/Card';
 import FadeInOut from '../comp/FadeInOut'
 import Text from '../comp/Text';
 import SlideUpDown from '../comp/SlideUpDown'
-import Blink from '../comp/Blink';
+import Map from '../comp/Map';
+
 export const durationSeconds = 4;
 
 export const Overview: React.FC<{
@@ -17,16 +17,14 @@ export const Overview: React.FC<{
 
 	return (
 
-		<AbsoluteFill className={`bg-slate-900 items-center justify-center`}>
+		<AbsoluteFill className={`bg-slate-900 items-start justify-start`}>
 
-			<Blink durationInFrames={durationInFrames} classOther="" animDelayPerc={0} >
-				<Icon filename='gun.png' classOther='w-64' />
-			</Blink>
+			<Map durationInFrames={durationInFrames} reports={[]} reportsHighlighted={[]} animDelayPerc={0.1} />
 
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.28} 
-				classOther="absolute w-full flex flex-col items-center justify-center" 
+				targetHeightRatio={0.4} 
+				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={primary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center" animDelayPerc={0}>

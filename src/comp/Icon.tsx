@@ -7,7 +7,6 @@ const Icon: React.FC<{
 }> = ({filename, classOther}) => {
 
 	return (
-	
 			<Img src={staticFile(filename)} className={classOther} alt="Icon" />
 	);
 };

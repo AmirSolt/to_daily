@@ -20,8 +20,8 @@ const Anim: React.FC<{
 	const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
 
-  const initY = Math.floor(height*0.5);
-  const targetY = Math.floor(height*(0.5-targetHeightRatio));
+  const initY = Math.floor(height);
+  const targetY = Math.floor(height*(1-targetHeightRatio));
 
 	const yTrans = interpolate(frame, [
 		Math.floor(startEnterFadePerc*durationInFrames) + Math.floor(animDelayPerc*durationInFrames),
@@ -36,7 +36,7 @@ const Anim: React.FC<{
 	return (
 		<div
       style={{transform: `translateY(${yTrans}px)`}}
-				className={classOther}
+				className={`absolute ${classOther}`}
 		>
       {children}
      
