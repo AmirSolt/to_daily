@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const startEnterFadePerc = 0.02;
+const startEnterFadePerc = 0.08;
 const endEnterFadePerc = 0.15;
 const startEndFadePerc = 0.85;
 const endEndFadePerc = 0.95;

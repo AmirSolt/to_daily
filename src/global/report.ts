@@ -1,10 +1,13 @@
 
 export interface Report{
-  point:[number,number]
+  geoPoint:[number,number]
   hour:number
+  neighborhood:string
   crimeType:string
   locationCategory:string
 }
+
+
 
 
 // geometry
@@ -13,6 +16,7 @@ export interface Report{
 
 // attributes
   // HOUR
+  // NEIGHBOURHOOD_158
   // CRIME_TYPE
   // LOCATION_CATEGORY
 
