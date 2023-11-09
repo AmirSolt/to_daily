@@ -10,11 +10,14 @@ export interface FontScheme{
 
 
 export const titleFont:FontScheme = {
-  size:"text-8xl",
+  size:"text-7xl",
   other:"font-bold leading-relaxed",
 }
-
-export const subTitleFont:FontScheme = {
+export const headerFont:FontScheme = {
+  size:"text-6xl",
+  other:"font-bold leading-relaxed",
+}
+export const bodyFont:FontScheme = {
   size:"text-5xl",
   other:"",
 }
@@ -35,7 +38,7 @@ export const secondary:ColorScheme = {
 }
 
 export const tertiary:ColorScheme = {
-  bgColor:"bg-slate-900",
+  bgColor:"bg-gray-950",
   textColor:"text-slate-100",
 }
 

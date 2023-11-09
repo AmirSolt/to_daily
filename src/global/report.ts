@@ -4,7 +4,7 @@ export interface Report{
   hour:number
   neighborhood:string
   crimeType:string
-  locationCategory:string
+  locationType:string
 }
 
 

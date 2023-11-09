@@ -7,7 +7,7 @@ const Card: React.FC<{
 }> = ({children, colorScheme}) => {
 	return (
 		<div
-      className={`${colorScheme.bgColor} p-6 w-5/6`}
+      className={`${colorScheme.bgColor} p-6 w-11/12`}
 		>
       {children}
      
