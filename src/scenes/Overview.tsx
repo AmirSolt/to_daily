@@ -1,32 +1,26 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {footerFont, primary, secondary, bodyFont, tertiary, titleFont} from '../global/stylesConfig';
-import {Report} from '../global/report';
+import {Report, CrimeTypes} from '../global/report';
 import Card from '../comp/Card';
 import FadeInOut from '../comp/FadeInOut'
 import Text from '../comp/Text';
 import SlideUpDown from '../comp/SlideUpDown'
 import Map from '../comp/Map';
-import { fps } from '../global/vars';
-
-
-const durationSeconds = 4;
-export const durationInFrames = durationSeconds*fps;
-
 
 
 
 
 export const OverviewScene: React.FC<{
-	reports:Report[]
-}> = ({reports}) => {
+	reports:Report[],
+	durationInFrames:number,
+}> = ({reports, durationInFrames}) => {
 
-	
+	const shooting = reports.filter(r=>r.crimeType===CrimeTypes.shooting)
+	const robbery = reports.filter(r=>r.crimeType===CrimeTypes.robbery)
+	const sexualViolation = reports.filter(r=>r.crimeType===CrimeTypes.sexualViolation)
+	const homicide = reports.filter(r=>r.crimeType===CrimeTypes.homicide)
 
-
-	// convert reports to text
-	// get tts
-	// get duration
 
 	return (
 
@@ -48,11 +42,11 @@ export const OverviewScene: React.FC<{
 				</Card>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text bolded="Date: " text='Nov 09' fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Time: " text='11pm' fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Neighborhood: " text='Downtown Yonge East' fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Crime Type: " text='Shooting' fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Location Type: " text='Parking Lot' fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Total: " text={`${reports.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Shooting: " text={`${shooting.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Robbery: " text={`${robbery.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Sexual Violation: " text={`${sexualViolation.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Homicide: " text={`${homicide.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>

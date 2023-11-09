@@ -8,7 +8,10 @@ export interface FontScheme{
   other:string
 }
 
-
+export const maxFont:FontScheme = {
+  size:"text-9xl",
+  other:"font-bold leading-relaxed",
+}
 export const titleFont:FontScheme = {
   size:"text-7xl",
   other:"font-bold leading-relaxed",

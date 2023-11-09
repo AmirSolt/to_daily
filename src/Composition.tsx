@@ -1,6 +1,8 @@
+import * as IntroScene from "./scenes/Intro";
 import * as OverviewScene from "./scenes/Overview";
 import * as ReportScene from "./scenes/Report";
-import {Report} from './global/report';
+import * as MessageScene from "./scenes/Message";
+import {Report, fetchReports} from './global/report';
 import {
   linearTiming,
   springTiming,
@@ -9,45 +11,24 @@ import {
 import { fade } from "@remotion/transitions/fade";
 import { wipe } from "@remotion/transitions/wipe";
 import { loadFont } from "@remotion/google-fonts/Montserrat";
-
+import { generatePrompts } from "./global/prompt";
 
 const { fontFamily } = loadFont();
 
 
-const reportExample:Report={
-  geoPoint : [250,450],
-  hour:23,
-	neighborhood:"Downtown Yonge East",
-  crimeType:"Yolo",
-  locationType:"Outside",
-}
-const reportExample2:Report={
-  geoPoint : [500,350],
-  hour:23,
-	neighborhood:"Downtown Yonge East",
-  crimeType:"Yolo",
-  locationType:"Outside",
-}
-const reportExample3:Report={
-  geoPoint : [850,300],
-  hour:23,
-	neighborhood:"Downtown Yonge East",
-  crimeType:"Yolo",
-  locationType:"Outside",
-}
+// fetch reports
+// generate prompts
+  // generate tts 
+  // fetch prompt durations
+// create scenes
 
-const reports:Report[] = [
-	reportExample,
-	reportExample2,
-	reportExample3,
-]
+const date = new Date()
+const reports = fetchReports(date)
+const prompts = generatePrompts(date, reports)
 
 
-export const totalDurationInFrames = [
-  OverviewScene.durationInFrames,
-  ReportScene.durationInFrames*reports.length,
-].reduce((a, b) => a + b, 0)
-
+export const fps = 60;
+export const totalDurationInSeconds = prompts.map(p=>p.durationInSeconds).reduce((a, b) => a + b, 0)
 
 export const MyComposition: React.FC = () => {
   return (
@@ -56,17 +37,21 @@ export const MyComposition: React.FC = () => {
           fontFamily,
         }}
         >
-        <TransitionSeries.Sequence durationInFrames={OverviewScene.durationInFrames}>
-          <OverviewScene.OverviewScene reports={reports} />
-        </TransitionSeries.Sequence>
 
-        
-        {reports.map((_, index) =>(
-            <TransitionSeries.Sequence durationInFrames={ReportScene.durationInFrames}>
-              <ReportScene.ReportScene reports={reports} reportIndex={index} />
+        {prompts.map((prompt) =>(
+            <TransitionSeries.Sequence durationInFrames={prompt.durationInSeconds*fps}>
+              {
+                {
+                  "intro":<IntroScene.IntroScene date={date} reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
+                  "overview":<OverviewScene.OverviewScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
+                  "report":<ReportScene.ReportScene reports={reports} reportIndex={prompt.highlightedReportIndex} durationInFrames={prompt.durationInSeconds*fps} />,
+                  "message":<MessageScene.MessageScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
+                }[prompt.type]
+              }
+
             </TransitionSeries.Sequence>
         ))}
-  
+
     </TransitionSeries>
 
   );
