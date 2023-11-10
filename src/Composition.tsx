@@ -8,6 +8,8 @@ import {
 } from "@remotion/transitions"; 
 import { loadFont } from "@remotion/google-fonts/Montserrat";
 import { generatePrompts } from "./global/prompt";
+import { fps } from './global/videoConfig';
+
 
 const { fontFamily } = loadFont();
 
@@ -19,7 +21,6 @@ const reports = fetchReports(date)
 const prompts = generatePrompts(date, reports)
 
 
-export const fps = 60;
 export const totalDurationInSeconds = prompts.map(p=>p.durationInSeconds).reduce((a, b) => a + b, 0)
 
 export const MyComposition: React.FC = () => {

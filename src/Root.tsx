@@ -1,6 +1,7 @@
 import {Composition} from 'remotion';
-import {MyComposition, totalDurationInSeconds, fps} from './Composition';
+import {MyComposition, totalDurationInSeconds} from './Composition';
 import './style.css';
+import { fps, width, height } from './global/videoConfig';
 
 
 
@@ -13,8 +14,8 @@ export const RemotionRoot: React.FC = () => {
 				component={MyComposition}
 				durationInFrames={totalDurationInSeconds*fps}
 				fps={fps}
-				width={1080}
-				height={1920}
+				width={width}
+				height={height}
 			/>
 		</>
 	);
