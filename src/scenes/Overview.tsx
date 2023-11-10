@@ -32,7 +32,7 @@ export const OverviewScene: React.FC<{
 			{/* prompt */}
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.5} 
+				targetHeightRatio={0.4} 
 				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={primary}>
@@ -42,11 +42,11 @@ export const OverviewScene: React.FC<{
 				</Card>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text bolded="Total: " text={`${reports.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Shooting: " text={`${shooting.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Robbery: " text={`${robbery.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Sexual Violation: " text={`${sexualViolation.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Homicide: " text={`${homicide.length} reports`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Total: " text={`${reports.length} ${grammarPlurality('report', reports.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Shooting: " text={`${shooting.length} ${grammarPlurality('report', shooting.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Robbery: " text={`${robbery.length} ${grammarPlurality('report', robbery.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Sexual Violation: " text={`${sexualViolation.length} ${grammarPlurality('report', sexualViolation.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Homicide: " text={`${homicide.length} ${grammarPlurality('report', homicide.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>
@@ -61,3 +61,9 @@ export const OverviewScene: React.FC<{
 	);
 };
         
+
+
+
+function grammarPlurality(word:string, count:number){
+	return count == 1? word : word+"s";
+}

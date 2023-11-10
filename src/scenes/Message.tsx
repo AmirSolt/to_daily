@@ -30,7 +30,7 @@ export const MessageScene: React.FC<{
 			{/* prompt */}
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.5} 
+				targetHeightRatio={0.4} 
 				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={primary}>

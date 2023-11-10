@@ -2,27 +2,19 @@ import * as IntroScene from "./scenes/Intro";
 import * as OverviewScene from "./scenes/Overview";
 import * as ReportScene from "./scenes/Report";
 import * as MessageScene from "./scenes/Message";
-import {Report, fetchReports} from './global/report';
+import {fetchReports} from './global/report';
 import {
-  linearTiming,
-  springTiming,
   TransitionSeries,
 } from "@remotion/transitions"; 
-import { fade } from "@remotion/transitions/fade";
-import { wipe } from "@remotion/transitions/wipe";
 import { loadFont } from "@remotion/google-fonts/Montserrat";
 import { generatePrompts } from "./global/prompt";
 
 const { fontFamily } = loadFont();
 
 
-// fetch reports
-// generate prompts
-  // generate tts 
-  // fetch prompt durations
-// create scenes
 
 const date = new Date()
+date.setDate(date.getDate() - 1);
 const reports = fetchReports(date)
 const prompts = generatePrompts(date, reports)
 

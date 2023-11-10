@@ -7,7 +7,7 @@ import FadeInOut from '../comp/FadeInOut'
 import Text from '../comp/Text';
 import SlideUpDown from '../comp/SlideUpDown'
 import Map from '../comp/Map';
-
+import { convertTo12 } from '../global/dateHelper';
 
 
 
@@ -27,20 +27,18 @@ export const ReportScene: React.FC<{
 
 		<AbsoluteFill className={`bg-slate-900 items-start justify-start`}>
 
-			{/* map */}
 			<Map durationInFrames={durationInFrames} reports={reports} highlightedIndices={[reportIndex]} animDelayPerc={0.1} />
 
-			{/* prompt */}
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.5} 
+				targetHeightRatio={0.4} 
 				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text bolded="Time: " text={`${report.hour} *`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Neighborhood: " text={`${report.neighborhood}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Crime Type: " text={`${report.crimeType}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Time: " text={`${convertTo12(report.hour)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Area: " text={`${report.neighborhood}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Incident Type: " text={`${report.crimeType}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Location Type: " text={`${report.locationType}`} fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>

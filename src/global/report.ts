@@ -11,21 +11,21 @@ export interface Report{
 export function fetchReports(date:Date):Report[]{
 
   const reportExample:Report={
-    geoPoint : [250,450],
+    geoPoint : [-8864425.720870294, 5427239.027927728],
     hour:23,
     neighborhood:"Downtown Yonge East",
     crimeType:"Robbery",
     locationType:"Outside",
   }
   const reportExample2:Report={
-    geoPoint : [500,350],
+    geoPoint : [-8813484.897743978, 5443097.109880663],
     hour:23,
     neighborhood:"Downtown Yonge East",
     crimeType:"Shooting",
     locationType:"Outside",
   }
   const reportExample3:Report={
-    geoPoint : [850,300],
+    geoPoint : [-8850559.742170155, 5415453.6030316409],
     hour:23,
     neighborhood:"Downtown Yonge East",
     crimeType:"Homicide",

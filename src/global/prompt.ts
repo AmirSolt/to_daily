@@ -37,7 +37,7 @@ function getIntroPrompt(date:Date){
 function getOverviewPrompt(date:Date, reports:Report[]){
   return {
     type:"overview",
-    text:`${reports.length} police reports on ${getDateStr(date)}`,
+    text:`${reports.length} police reports on ${getDateStr(date, false)}`,
     audioFilePath:null,
     durationInSeconds:4,
     highlightedReportIndex:null
