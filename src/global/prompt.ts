@@ -1,6 +1,6 @@
 import { Report } from "./report";
 import { getDateStr } from '../global/dateHelper';
-
+import { chosenCrimeTypes } from "./report";
 
 export interface Prompt{
   type:"intro"|"overview"|"report"|"message"
@@ -23,6 +23,8 @@ export function generatePrompts(date: Date, reports:Report[]):Prompt[]{
     reportPrompts.slice(messageAfterReports),
   ].flat()
 }
+
+
 
 function getIntroPrompt(date:Date){
   return {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {footerFont, primary, secondary, bodyFont, tertiary, titleFont} from '../global/stylesConfig';
-import {Report, CrimeTypes} from '../global/report';
+import {Report, chosenCrimeTypes} from '../global/report';
 import Card from '../comp/Card';
 import FadeInOut from '../comp/FadeInOut'
 import Text from '../comp/Text';
@@ -16,10 +16,10 @@ export const OverviewScene: React.FC<{
 	durationInFrames:number,
 }> = ({reports, durationInFrames}) => {
 
-	const shooting = reports.filter(r=>r.crimeType===CrimeTypes.shooting)
-	const robbery = reports.filter(r=>r.crimeType===CrimeTypes.robbery)
-	const sexualViolation = reports.filter(r=>r.crimeType===CrimeTypes.sexualViolation)
-	const homicide = reports.filter(r=>r.crimeType===CrimeTypes.homicide)
+	const shooting = reports.filter(r=>r.crimeType===chosenCrimeTypes.shooting)
+	const robbery = reports.filter(r=>r.crimeType===chosenCrimeTypes.robbery)
+	const sexualViolation = reports.filter(r=>r.crimeType===chosenCrimeTypes.sexualViolation)
+	const homicide = reports.filter(r=>r.crimeType===chosenCrimeTypes.homicide)
 
 
 	return (

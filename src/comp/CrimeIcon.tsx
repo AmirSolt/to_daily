@@ -1,5 +1,5 @@
 import React from 'react';
-import {Report, CrimeTypes} from '../global/report';
+import {Report, chosenCrimeTypes} from '../global/report';
 import { Img, staticFile } from "remotion";
 import { gunFilename, robberFilename, sexualViolationFilename, homicideFilename } from '../global/filenames';
 
@@ -15,19 +15,19 @@ const CrimeIcon: React.FC<{
   let filename:string|null = null;
   
   switch (report.crimeType) {
-    case CrimeTypes.shooting:
+    case chosenCrimeTypes.shooting:
       filename=gunFilename
       break;
 
-    case CrimeTypes.robbery:
+    case chosenCrimeTypes.robbery:
       filename=robberFilename
       break;
 
-    case CrimeTypes.sexualViolation:
+    case chosenCrimeTypes.sexualViolation:
       filename=sexualViolationFilename
       break;
 
-    case CrimeTypes.homicide:
+    case chosenCrimeTypes.homicide:
       filename=homicideFilename
       break;
   
@@ -36,7 +36,7 @@ const CrimeIcon: React.FC<{
   }
 
   if(filename==null){
-    throw new Error("Report crimeType did not match existing icons");
+    throw new Error(`${report.crimeType} crimeType did not match existing icons`);
   }
 
 	return (

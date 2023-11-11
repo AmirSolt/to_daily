@@ -8,38 +8,42 @@ export interface Report{
 }
 
 
-export function fetchReports(date:Date):Report[]{
 
-  const reportExample:Report={
-    geoPoint : [-8832467.20, 5405710.07],
-    hour:23,
-    neighborhood:"Downtown Yonge East",
-    crimeType:"Robbery",
-    locationType:"Outside",
-  }
-  const reportExample2:Report={
-    geoPoint : [-8838202.7, 5408920.51],
-    hour:23,
-    neighborhood:"Downtown Yonge East",
-    crimeType:"Shooting",
-    locationType:"Outside",
-  }
-  const reportExample3:Report={
-    geoPoint : [-8850559.742170155, 5415453.6030316409],
-    hour:23,
-    neighborhood:"Downtown Yonge East",
-    crimeType:"Homicide",
-    locationType:"Outside",
-  }
-  
-  const reports:Report[] = [
-    reportExample,
-    reportExample2,
-    reportExample3,
-  ]
+export async function fetchReports(date:Date):Promise<Report[]>{
+  const offset = date.getTimezoneOffset()
+  date = new Date(date.getTime() - (offset*60*1000))
+  const dateStr = date.toISOString().split('T')[0]
 
-  return reports
+  const whereStatementUrlified:string = encodeURIComponent(`OCC_DATE_EST >= date '${dateStr} 00:00:00' and OCC_DATE_EST < date '${dateStr} 11:59:59'`)
+  const url = `https://services.arcgis.com/S9th0jAJ7bqgIRjw/ArcGIS/rest/services/YTD_CRIME_WM/FeatureServer/0/query?where=${whereStatementUrlified}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=OCC_DATE_EST&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=`
+
+  const response = await fetch(url);
+  const reportsRaw:{'features':any[]} = await response.json();
+
+  const reports:Report[] = reportsRaw['features'].filter(item=>"geometry" in item).map((item)=>{
+    const x = item["geometry"]['x']
+    const y = item["geometry"]['y']
+
+    return {
+      geoPoint:[x,y],
+      hour:item["attributes"]["HOUR"],
+      neighborhood:item["attributes"]["NEIGHBOURHOOD_158"],
+      crimeType:item["attributes"]["CRIME_TYPE"],
+      locationType:item["attributes"]["LOCATION_CATEGORY"],
+    } as Report
+  })
+
+  return filterByCrimeType(reports)
 }
+
+function filterByCrimeType(reports:Report[]):Report[]{
+  const filteredReports = reports.filter(item=>Object.values(chosenCrimeTypes).includes(item.crimeType))
+  console.log(Object.values(chosenCrimeTypes))
+  console.log(filteredReports)
+
+  return filteredReports
+}
+
 
 export const CrimeTypes = {
   assault: 'Assault',
@@ -53,6 +57,13 @@ export const CrimeTypes = {
   shooting: 'Shooting',
   homicide: 'Homicide',
 };
+
+export const chosenCrimeTypes = {
+  sexualViolation:CrimeTypes.sexualViolation,
+  robbery:CrimeTypes.robbery,
+  shooting:CrimeTypes.shooting,
+  homicide:CrimeTypes.homicide,
+}
 
 // geometry
   // x

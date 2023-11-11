@@ -2,28 +2,31 @@ import * as IntroScene from "./scenes/Intro";
 import * as OverviewScene from "./scenes/Overview";
 import * as ReportScene from "./scenes/Report";
 import * as MessageScene from "./scenes/Message";
-import {fetchReports} from './global/report';
 import {
   TransitionSeries,
 } from "@remotion/transitions"; 
 import { loadFont } from "@remotion/google-fonts/Montserrat";
-import { generatePrompts } from "./global/prompt";
 import { fps } from './global/videoConfig';
+import { Prompt } from "./global/prompt";
+import { Report } from "./global/report";
 
 
 const { fontFamily } = loadFont();
 
 
 
-const date = new Date()
-date.setDate(date.getDate() - 1);
-const reports = fetchReports(date)
-const prompts = generatePrompts(date, reports)
 
 
-export const totalDurationInSeconds = prompts.map(p=>p.durationInSeconds).reduce((a, b) => a + b, 0)
 
-export const MyComposition: React.FC = () => {
+
+
+
+export const MyComposition: React.FC<{
+  date:Date,
+  prompts:Prompt[],
+  reports:Report[],
+
+}> = ({ date,prompts,reports, }) => {
   return (
       <TransitionSeries
         style={{
