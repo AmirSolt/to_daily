@@ -1,18 +1,20 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Audio, staticFile} from 'remotion';
 import {primary, maxFont} from '../global/stylesConfig';
 import {Report} from '../global/report';
 import Text from '../comp/Text';
 import Map from '../comp/Map';
 import SlideDown from '../comp/SlideDown'
 import { getDateStr } from '../global/dateHelper';
+import { Prompt } from '../global/prompt';
 
 
 export const IntroScene: React.FC<{
   date:Date,
+	prompt:Prompt,
 	reports:Report[],
 	durationInFrames:number,
-}> = ({date, reports, durationInFrames}) => {
+}> = ({date, reports, durationInFrames, prompt}) => {
 
 
 	return (

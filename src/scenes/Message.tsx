@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Audio, staticFile} from 'remotion';
 import {footerFont, primary, secondary, bodyFont, tertiary, titleFont} from '../global/stylesConfig';
 import {Report} from '../global/report';
 import Card from '../comp/Card';
@@ -7,14 +7,15 @@ import FadeInOut from '../comp/FadeInOut'
 import Text from '../comp/Text';
 import SlideUpDown from '../comp/SlideUpDown'
 import Map from '../comp/Map';
-
+import { Prompt } from '../global/prompt';
 
 
 
 export const MessageScene: React.FC<{
 	reports:Report[],
+	prompt:Prompt,
 	durationInFrames:number,
-}> = ({reports, durationInFrames}) => {
+}> = ({reports, durationInFrames, prompt}) => {
 
 	// convert reports to text
 	// get tts
@@ -49,6 +50,10 @@ export const MessageScene: React.FC<{
 					</FadeInOut>
 				</Card>
 			</SlideUpDown>
+
+
+			{prompt.audioFilePath? 
+			(<Audio src={staticFile(prompt.audioFilePath)} />):(<Audio/>)}
 
 		</AbsoluteFill>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Audio, staticFile} from 'remotion';
 import {footerFont, primary, secondary, bodyFont, tertiary, titleFont, headerFont} from '../global/stylesConfig';
 import {Report} from '../global/report';
 import Card from '../comp/Card';
@@ -8,14 +8,16 @@ import Text from '../comp/Text';
 import SlideUpDown from '../comp/SlideUpDown'
 import Map from '../comp/Map';
 import { convertTo12 } from '../global/dateHelper';
+import { Prompt } from '../global/prompt';
 
 
 
 export const ReportScene: React.FC<{
   reportIndex:number|null,
 	reports:Report[],
+	prompt:Prompt,
 	durationInFrames:number,
-}> = ({reportIndex, reports, durationInFrames}) => {
+}> = ({reportIndex, reports, durationInFrames, prompt}) => {
 
 	if(reportIndex==null){
 		throw new Error("Report Index was null");
@@ -48,6 +50,9 @@ export const ReportScene: React.FC<{
 					</FadeInOut>
 				</Card>
 			</SlideUpDown>
+
+			{prompt.audioFilePath? 
+			(<Audio src={staticFile(prompt.audioFilePath)} />):(<Audio/>)}
 
 		</AbsoluteFill>
 

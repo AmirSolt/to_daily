@@ -38,10 +38,10 @@ export const MyComposition: React.FC<{
             <TransitionSeries.Sequence durationInFrames={prompt.durationInSeconds*fps}>
               {
                 {
-                  "intro":<IntroScene.IntroScene date={date} reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
-                  "overview":<OverviewScene.OverviewScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
-                  "report":<ReportScene.ReportScene reports={reports} reportIndex={prompt.highlightedReportIndex} durationInFrames={prompt.durationInSeconds*fps} />,
-                  "message":<MessageScene.MessageScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} />,
+                  "intro":<IntroScene.IntroScene date={date} reports={reports} durationInFrames={prompt.durationInSeconds*fps} prompt={prompt} />,
+                  "overview":<OverviewScene.OverviewScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} prompt={prompt} />,
+                  "report":<ReportScene.ReportScene reports={reports} reportIndex={prompt.highlightedReportIndex} durationInFrames={prompt.durationInSeconds*fps} prompt={prompt} />,
+                  "message":<MessageScene.MessageScene reports={reports} durationInFrames={prompt.durationInSeconds*fps} prompt={prompt} />,
                 }[prompt.type]
               }
 
