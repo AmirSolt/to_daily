@@ -13,8 +13,9 @@ API_KEY = "2c77de5e87730023e7cc8434b5a808d5"
 VOICE_NAME = "Daniel"
 FILE_TYPE = "mp3"
 MODEL_ID = "eleven_multilingual_v1"
-# AUDIO_DIR = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/'
-AUDIO_DIR = './audio/'
+AUDIO_DIR = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/'
+STATIC_RELATIVE_AUDIO_DIR = 'audio/'
+# AUDIO_DIR = './audio/'
 set_api_key(API_KEY)
 
 start_pause = '<break time="0.7s" />'
@@ -42,33 +43,36 @@ def get_intro_prompt(date):
   return {
     "type": "intro",
     "text": "",
-    "audioFilePath": None,
+    "audioFilePath": "",
+    "relativeAudioFilePath": "",
     "durationInSeconds": 0.2,
-    "highlightedReportIndex": None
+    "highlightedReportIndex": -1
   }
 
 def get_overview_prompt(date, reports):
   type_ = "overview"
   filename = f"{type_}"
-  text = f"{start_pause} {len(reports)} police reports on {get_date_str(date, False)} "
-  filepath, duration_in_seconds = generate_tts(text, filename)
+  text = f"{start_pause} {len(reports)} police reports on {get_date_str(date, False)}, as follows "
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
     "type": type_, 
     "text": text, 
     "audioFilePath": filepath, 
+    "relativeAudioFilePath": relativeAudioFilePath,
     "durationInSeconds": duration_in_seconds + end_pause, 
-    "highlightedReportIndex": None
+    "highlightedReportIndex": -1
   }
 
 def get_report_prompt(date, report, report_index):
   type_ = "report"
   text = f"{start_pause} {report['crimeType']} near {report['neighborhood']} at {convert_to_12(report['hour'])} "
   filename = f"{type_}_{report_index}"
-  filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
     "type": type_, 
     "text": text, 
     "audioFilePath": filepath, 
+    "relativeAudioFilePath": relativeAudioFilePath,
     "durationInSeconds": duration_in_seconds + end_pause, 
     "highlightedReportIndex": report_index
   }
@@ -77,13 +81,14 @@ def get_message_prompt(date):
   type_ = "message"
   text = f"{start_pause} Follow for daily reports "
   filename = f"{type_}"
-  filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
     "type": type_,
     "text": text,
     "audioFilePath": filepath,
+    "relativeAudioFilePath": relativeAudioFilePath,
     "durationInSeconds": duration_in_seconds + end_pause,
-    "highlightedReportIndex": None
+    "highlightedReportIndex": -1
   }
 
 
@@ -125,20 +130,24 @@ def convert_to_12(time):
 
 def generate_tts(text, filename):
   
-  
-  audio = generate(
-    text=text,
-    voice=VOICE_NAME,
-    model=MODEL_ID,
-  )
   filepath = AUDIO_DIR + filename + "." + FILE_TYPE
-  save(audio, filepath)
-  print(f"{filepath} created. Sleeping...")
-  time.sleep(2)
+  relativeAudioFilePath = STATIC_RELATIVE_AUDIO_DIR + filename + "." + FILE_TYPE
+  
+  if config.generate_audio:
+    audio = generate(
+      text=text,
+      voice=VOICE_NAME,
+      model=MODEL_ID,
+    )
+    save(audio, filepath)
+    print(f"{filepath} created. Sleeping...")
+    time.sleep(2)
+  
+  
 
   duration = get_duration(filepath)
 
-  return filepath, duration
+  return relativeAudioFilePath, filepath, duration
   
 
   

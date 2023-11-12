@@ -2,10 +2,10 @@ import config
 import prompt as prmpt
 import report as rprt
 
+json_filepath = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/data.json'
+# json_filepath = './data.json'
 
-# json_filepath = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/data.json'
-json_filepath = './data.json'
-
+# generate_audio is false
 
 yesterday = config.yesterday
 reports = rprt.fetchReports(yesterday)
@@ -18,4 +18,4 @@ data = {
 }
 
 
-config.save_dict_as_json(prompts, json_filepath)
+config.save_dict_as_json(data, json_filepath)

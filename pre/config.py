@@ -5,6 +5,8 @@ import json
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(days = 1)
 
+generate_audio = True
+
 promptTypes = {
   'intro':'intro',
   'overview':'overview',
