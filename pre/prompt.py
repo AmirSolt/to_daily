@@ -40,19 +40,23 @@ def generatePrompts(date, reports):
 
 
 def get_intro_prompt(date):
+  type_ = "intro"
+  filename = f"{type_}"
+  text = f"{start_pause} {get_date_str(date, is_short_hand=False)}, toronto city"
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
-    "type": "intro",
-    "text": "",
-    "audioFilePath": "",
-    "relativeAudioFilePath": "",
-    "durationInSeconds": 0.2,
+    "type": type_,
+    "text": text,
+    "audioFilePath": filepath,
+    "relativeAudioFilePath": relativeAudioFilePath,
+    "durationInSeconds": duration_in_seconds,
     "highlightedReportIndex": -1
   }
 
 def get_overview_prompt(date, reports):
   type_ = "overview"
   filename = f"{type_}"
-  text = f"{start_pause} {len(reports)} police reports on {get_date_str(date, False)}, as follows "
+  text = f"{start_pause} {len(reports)} police reports of physical violence."
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
     "type": type_, 
@@ -65,7 +69,7 @@ def get_overview_prompt(date, reports):
 
 def get_report_prompt(date, report, report_index):
   type_ = "report"
-  text = f"{start_pause} {report['crimeType']} near {report['neighborhood']} at {convert_to_12(report['hour'])} "
+  text = f"{start_pause} {report['crimeType']} near {report['neighborhood']} at {convert_to_12(report['hour'])}."
   filename = f"{type_}_{report_index}"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
@@ -79,7 +83,7 @@ def get_report_prompt(date, report, report_index):
 
 def get_message_prompt(date):
   type_ = "message"
-  text = f"{start_pause} Follow for daily reports "
+  text = f"{start_pause} Share for safety awareness."
   filename = f"{type_}"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
   return {
