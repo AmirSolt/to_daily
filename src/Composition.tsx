@@ -9,8 +9,8 @@ import { loadFont } from "@remotion/google-fonts/Montserrat";
 import { fps } from './global/videoConfig';
 import { Prompt } from "./global/prompt";
 import { Report } from "./global/report";
-
-
+import {Audio, staticFile} from 'remotion';
+import { newsThemeFilename } from "./global/filenames";
 const { fontFamily } = loadFont();
 
 
@@ -28,6 +28,8 @@ export const MyComposition: React.FC<{
 
 }> = ({ date,prompts,reports, }) => {
   return (
+
+    <div>
       <TransitionSeries
         style={{
           fontFamily,
@@ -49,6 +51,9 @@ export const MyComposition: React.FC<{
         ))}
 
     </TransitionSeries>
+
+    <Audio loop src={staticFile(newsThemeFilename)} volume={0.4} />
+    </div>
 
   );
 };

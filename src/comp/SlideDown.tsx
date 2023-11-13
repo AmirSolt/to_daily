@@ -2,7 +2,7 @@ import {interpolate, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 import React from 'react';
 
 
-const startEnterFadePerc = 0.1;
+const startEnterFadePerc = 0.92;
 const endEndFadePerc = 1;
 
 

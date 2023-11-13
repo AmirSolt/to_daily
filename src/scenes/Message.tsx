@@ -26,34 +26,34 @@ export const MessageScene: React.FC<{
 		<AbsoluteFill className={`bg-slate-900 items-start justify-start`}>
 
 			{/* map */}
-			<Map durationInFrames={durationInFrames} reports={reports} highlightedIndices={[]} animDelayPerc={0.1} />
+			<Map durationInFrames={durationInFrames} reports={reports} highlightedIndices={[]} animDelayPerc={0.1} isOverview={false} />
 
 			{/* prompt */}
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.4} 
+				targetHeightRatio={0.6} 
 				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={primary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center" animDelayPerc={0}>
-						<Text text='Follow for daily reports' fontScheme={titleFont} colorScheme={primary} />
+						<Text text='Share for Safety Awareness' fontScheme={titleFont} colorScheme={primary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text text='Upload Everyday at 7am' fontScheme={bodyFont} colorScheme={secondary} />
+						<Text text="Follow for Daily Upload" fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-center justify-center" animDelayPerc={0.02}>
-						<Text text='@TO_Daily' fontScheme={footerFont} colorScheme={tertiary} />
+						<Text text='Tiktok: @TO_Daily' fontScheme={footerFont} colorScheme={tertiary} />
 					</FadeInOut>
 				</Card>
 			</SlideUpDown>
 
 
-			{prompt.audioFilePath? 
-			(<Audio src={staticFile(prompt.audioFilePath)} />):(<Audio/>)}
+			{prompt.relativeAudioFilePath? 
+			(<Audio src={staticFile(prompt.relativeAudioFilePath)} />):(<div/>)}
 
 		</AbsoluteFill>
 

@@ -29,7 +29,7 @@ export const ReportScene: React.FC<{
 
 		<AbsoluteFill className={`bg-slate-900 items-start justify-start`}>
 
-			<Map durationInFrames={durationInFrames} reports={reports} highlightedIndices={[reportIndex]} animDelayPerc={0.1} />
+			<Map durationInFrames={durationInFrames} reports={reports} highlightedIndices={[reportIndex]} animDelayPerc={0.1} isOverview={false} />
 
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
@@ -46,13 +46,13 @@ export const ReportScene: React.FC<{
 				</Card>
 				<Card colorScheme={tertiary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-center justify-center" animDelayPerc={0.02}>
-						<Text text='@TO_Daily' fontScheme={footerFont} colorScheme={tertiary} />
+						<Text text='Tiktok: @TO_Daily' fontScheme={footerFont} colorScheme={tertiary} />
 					</FadeInOut>
 				</Card>
 			</SlideUpDown>
 
-			{prompt.audioFilePath? 
-			(<Audio src={staticFile(prompt.audioFilePath)} />):(<Audio/>)}
+			{prompt.relativeAudioFilePath? 
+			(<Audio src={staticFile(prompt.relativeAudioFilePath)} />):(<div/>)}
 
 		</AbsoluteFill>
 
