@@ -52,7 +52,7 @@ export const MyComposition: React.FC<{
 
     </TransitionSeries>
 
-    <Audio loop src={staticFile(newsThemeFilename)} volume={0.4} />
+    <Audio loop src={staticFile(newsThemeFilename)} volume={0.1} />
     </div>
 
   );
