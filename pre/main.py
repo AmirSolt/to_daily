@@ -20,13 +20,13 @@ questions = [
 ]
 answers = inquirer.prompt(questions)
 generate_audio = True if answers['Audio'] == 'Yes' else False
-chosenCrimeType = config.crimeTypes[answers['Crime Type']]
+crimeTypeName = answers['Crime Type']
 
 
 
 yesterday = config.yesterday
-reports = rprt.fetchReports(yesterday, chosenCrimeType)
-prompts = prmpt.generatePrompts(yesterday, reports, generate_audio)
+reports = rprt.fetchReports(yesterday, crimeTypeName)
+prompts = prmpt.generatePrompts(yesterday, reports, generate_audio, crimeTypeName)
 
 data = {
     "date":yesterday.strftime('%Y-%m-%d'),

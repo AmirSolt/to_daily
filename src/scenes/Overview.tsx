@@ -18,10 +18,15 @@ export const OverviewScene: React.FC<{
 	durationInFrames:number,
 }> = ({reports, durationInFrames, prompt}) => {
 
-	const shooting = reports.filter(r=>r.crimeType===chosenCrimeTypes.shooting)
-	const robbery = reports.filter(r=>r.crimeType===chosenCrimeTypes.robbery)
-	const sexualViolation = reports.filter(r=>r.crimeType===chosenCrimeTypes.sexualViolation)
-	const homicide = reports.filter(r=>r.crimeType===chosenCrimeTypes.homicide)
+
+	const crimeCounter:any = {}
+	reports.forEach(r=>{
+		if(r.crimeType in crimeCounter){
+			crimeCounter[r.crimeType]++
+		}else{
+			crimeCounter[r.crimeType]=1
+		}
+	})
 
 
 	return (
@@ -45,10 +50,12 @@ export const OverviewScene: React.FC<{
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
 						<Text bolded="Total: " text={`${reports.length} ${grammarPlurality('report', reports.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Shooting: " text={`${shooting.length} ${grammarPlurality('report', shooting.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Robbery: " text={`${robbery.length} ${grammarPlurality('report', robbery.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Sexual Violation: " text={`${sexualViolation.length} ${grammarPlurality('report', sexualViolation.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Homicide: " text={`${homicide.length} ${grammarPlurality('report', homicide.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
+						{Object.entries(crimeCounter).map((crimeType, crimeCount) => {     
+							return (
+								<Text bolded={`${crimeType}: `} text={`${crimeCount} ${grammarPlurality('report', crimeCount)}`} fontScheme={bodyFont} colorScheme={secondary} />
+								) 
+						})}
+					
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>

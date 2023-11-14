@@ -26,22 +26,19 @@ CrimeTypes = {
   'homicide': 'Homicide',
 }
 
-crimeTypes = {
+crimeLabels = {
   'violence': {
-  'sexualViolation':CrimeTypes['sexualViolation'],
-  'robbery':CrimeTypes['robbery'],
-  'shooting':CrimeTypes['shooting'],
-  'homicide':CrimeTypes['homicide'],
-},
-  'house': {
-  'breakAndEnter':CrimeTypes['breakAndEnter'],
-  'theftOver':CrimeTypes['theftOver'],
-},
-  'vehicle':{
-  'autoTheft':CrimeTypes['autoTheft'],
-  'theftFromVehicle':CrimeTypes['theftFromVehicle'],
-}
-
+    'sexualViolation':CrimeTypes['sexualViolation'],
+    'robbery':CrimeTypes['robbery'],
+    'shooting':CrimeTypes['shooting'],
+    'homicide':CrimeTypes['homicide'],
+  },
+    'break and enter': {
+      'breakAndEnter':CrimeTypes['breakAndEnter'],
+  },
+    'vehicle theft':{
+      'autoTheft':CrimeTypes['autoTheft'],
+  }
 }
 
 

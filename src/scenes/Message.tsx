@@ -36,12 +36,12 @@ export const MessageScene: React.FC<{
 				animDelayPerc={0}>
 				<Card colorScheme={primary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center" animDelayPerc={0}>
-						<Text text='Share for Safety Awareness' fontScheme={titleFont} colorScheme={primary} />
+						<Text text='Follow for Daily Upload' fontScheme={titleFont} colorScheme={primary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text text="Follow for Daily Upload" fontScheme={bodyFont} colorScheme={secondary} />
+						<Text text="Share for Safety Awareness" fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>

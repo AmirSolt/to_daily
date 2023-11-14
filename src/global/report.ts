@@ -26,4 +26,6 @@ export const chosenCrimeTypes = {
   robbery:CrimeTypes.robbery,
   shooting:CrimeTypes.shooting,
   homicide:CrimeTypes.homicide,
+  autoTheft:CrimeTypes.autoTheft,
+  breakAndEnter:CrimeTypes.breakAndEnter,
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Report, chosenCrimeTypes} from '../global/report';
 import { Img, staticFile } from "remotion";
-import { gunFilename, robberFilename, sexualViolationFilename, homicideFilename } from '../global/filenames';
+import { gunFilename, robberFilename, sexualViolationFilename, homicideFilename, bneFilename, carFilename } from '../global/filenames';
 
 
 
@@ -30,7 +30,16 @@ const CrimeIcon: React.FC<{
     case chosenCrimeTypes.homicide:
       filename=homicideFilename
       break;
+
+    case chosenCrimeTypes.breakAndEnter:
+      filename=bneFilename
+      break;
   
+        
+    case chosenCrimeTypes.autoTheft:
+      filename=carFilename
+      break;
+
     default:
       break;
   }

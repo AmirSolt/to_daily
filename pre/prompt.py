@@ -26,14 +26,14 @@ end_pause = 0.7
 
 
 
-def generatePrompts(date, reports, generate_audio):
-  messageAfterReports = 2
+def generatePrompts(date, reports, generate_audio, crimeTypeName):
+  messageAfterReports = 4
   
-  reportPrompts = [get_report_prompt(date, r, i, generate_audio) for i, r in enumerate(reports)]
+  reportPrompts = [get_report_prompt(date, r, i, generate_audio, crimeTypeName) for i, r in enumerate(reports)]
 
   return [
     get_intro_prompt(date, generate_audio),
-    get_overview_prompt(date, reports, generate_audio),
+    get_overview_prompt(date, reports, generate_audio, crimeTypeName),
     *reportPrompts[:messageAfterReports],
     get_message_prompt(date, generate_audio),
     *reportPrompts[messageAfterReports:]
@@ -55,10 +55,10 @@ def get_intro_prompt(date, generate_audio):
     "highlightedReportIndex": -1
   }
 
-def get_overview_prompt(date, reports, generate_audio):
+def get_overview_prompt(date, reports, generate_audio, crimeTypeName):
   type_ = "overview"
   filename = f"{type_}"
-  text = f"{start_pause} {len(reports)} police reports of physical violence."
+  text = f"{start_pause} {len(reports)} police reports of {config.crimeLabels[crimeTypeName]}."
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_, 
@@ -85,7 +85,7 @@ def get_report_prompt(date, report, report_index, generate_audio):
 
 def get_message_prompt(date, generate_audio):
   type_ = "message"
-  text = f"{start_pause} Share for safety awareness."
+  text = f"{start_pause} Follow for daily reports."
   filename = f"{type_}"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
