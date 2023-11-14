@@ -5,7 +5,6 @@ import json
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(days = 1)
 
-generate_audio = False
 
 promptTypes = {
   'intro':'intro',
@@ -27,12 +26,27 @@ CrimeTypes = {
   'homicide': 'Homicide',
 }
 
-chosenCrimeTypes = {
+crimeTypes = {
+  'violence': {
   'sexualViolation':CrimeTypes['sexualViolation'],
   'robbery':CrimeTypes['robbery'],
   'shooting':CrimeTypes['shooting'],
   'homicide':CrimeTypes['homicide'],
+},
+  'house': {
+  'breakAndEnter':CrimeTypes['breakAndEnter'],
+  'theftOver':CrimeTypes['theftOver'],
+},
+  'vehicle':{
+  'autoTheft':CrimeTypes['autoTheft'],
+  'theftFromVehicle':CrimeTypes['theftFromVehicle'],
 }
+
+}
+
+
+
+
 
 def save_dict_as_json(d, filepath):
     """

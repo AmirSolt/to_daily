@@ -6,10 +6,12 @@ from elevenlabs import save
 import config
 import time
 from mutagen.mp3 import MP3
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-
-
-API_KEY = "2c77de5e87730023e7cc8434b5a808d5"
+API_KEY = os.environ.get("ELEVENLABS_API_KEY")
+print(API_KEY)
 VOICE_NAME = "Daniel"
 FILE_TYPE = "mp3"
 MODEL_ID = "eleven_multilingual_v1"
@@ -24,26 +26,26 @@ end_pause = 0.7
 
 
 
-def generatePrompts(date, reports):
+def generatePrompts(date, reports, generate_audio):
   messageAfterReports = 2
   
-  reportPrompts = [get_report_prompt(date, r, i) for i, r in enumerate(reports)]
+  reportPrompts = [get_report_prompt(date, r, i, generate_audio) for i, r in enumerate(reports)]
 
   return [
-    get_intro_prompt(date),
-    get_overview_prompt(date,reports),
+    get_intro_prompt(date, generate_audio),
+    get_overview_prompt(date, reports, generate_audio),
     *reportPrompts[:messageAfterReports],
-    get_message_prompt(date),
+    get_message_prompt(date, generate_audio),
     *reportPrompts[messageAfterReports:]
   ]
 
 
 
-def get_intro_prompt(date):
+def get_intro_prompt(date, generate_audio):
   type_ = "intro"
   filename = f"{type_}"
   text = f"{start_pause} {get_date_str(date, is_short_hand=False)}, toronto city"
-  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_,
     "text": text,
@@ -53,11 +55,11 @@ def get_intro_prompt(date):
     "highlightedReportIndex": -1
   }
 
-def get_overview_prompt(date, reports):
+def get_overview_prompt(date, reports, generate_audio):
   type_ = "overview"
   filename = f"{type_}"
   text = f"{start_pause} {len(reports)} police reports of physical violence."
-  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_, 
     "text": text, 
@@ -67,11 +69,11 @@ def get_overview_prompt(date, reports):
     "highlightedReportIndex": -1
   }
 
-def get_report_prompt(date, report, report_index):
+def get_report_prompt(date, report, report_index, generate_audio):
   type_ = "report"
   text = f"{start_pause} {report['crimeType']} near {report['neighborhood']} at {convert_to_12(report['hour'])}."
   filename = f"{type_}_{report_index}"
-  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_, 
     "text": text, 
@@ -81,11 +83,11 @@ def get_report_prompt(date, report, report_index):
     "highlightedReportIndex": report_index
   }
 
-def get_message_prompt(date):
+def get_message_prompt(date, generate_audio):
   type_ = "message"
   text = f"{start_pause} Share for safety awareness."
   filename = f"{type_}"
-  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename)
+  relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_,
     "text": text,
@@ -132,12 +134,12 @@ def convert_to_12(time):
         return f"{time - 12}pm"
 
 
-def generate_tts(text, filename):
+def generate_tts(text, filename, generate_audio):
   
   filepath = AUDIO_DIR + filename + "." + FILE_TYPE
   relativeAudioFilePath = STATIC_RELATIVE_AUDIO_DIR + filename + "." + FILE_TYPE
   
-  if config.generate_audio:
+  if generate_audio:
     audio = generate(
       text=text,
       voice=VOICE_NAME,
