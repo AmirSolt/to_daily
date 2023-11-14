@@ -26,7 +26,7 @@ CrimeTypes = {
   'homicide': 'Homicide',
 }
 
-crimeLabels = {
+ChosenCrimeTypes = {
   'violence': {
     'sexualViolation':CrimeTypes['sexualViolation'],
     'robbery':CrimeTypes['robbery'],

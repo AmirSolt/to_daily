@@ -11,7 +11,6 @@ load_dotenv()
 import os
 
 API_KEY = os.environ.get("ELEVENLABS_API_KEY")
-print(API_KEY)
 VOICE_NAME = "Daniel"
 FILE_TYPE = "mp3"
 MODEL_ID = "eleven_multilingual_v1"
@@ -29,7 +28,7 @@ end_pause = 0.7
 def generatePrompts(date, reports, generate_audio, crimeTypeName):
   messageAfterReports = 4
   
-  reportPrompts = [get_report_prompt(date, r, i, generate_audio, crimeTypeName) for i, r in enumerate(reports)]
+  reportPrompts = [get_report_prompt(date, r, i, generate_audio) for i, r in enumerate(reports)]
 
   return [
     get_intro_prompt(date, generate_audio),
@@ -58,7 +57,7 @@ def get_intro_prompt(date, generate_audio):
 def get_overview_prompt(date, reports, generate_audio, crimeTypeName):
   type_ = "overview"
   filename = f"{type_}"
-  text = f"{start_pause} {len(reports)} police reports of {config.crimeLabels[crimeTypeName]}."
+  text = f"{start_pause} {len(reports)} police reports of {crimeTypeName}."
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_, 
@@ -147,7 +146,7 @@ def generate_tts(text, filename, generate_audio):
     )
     save(audio, filepath)
     print(f"{filepath} created. Sleeping...")
-    time.sleep(2)
+    time.sleep(1)
   
   
 

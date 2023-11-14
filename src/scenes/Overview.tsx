@@ -19,7 +19,7 @@ export const OverviewScene: React.FC<{
 }> = ({reports, durationInFrames, prompt}) => {
 
 
-	const crimeCounter:any = {}
+	const crimeCounter: { [key: string]: number } = {}
 	reports.forEach(r=>{
 		if(r.crimeType in crimeCounter){
 			crimeCounter[r.crimeType]++
@@ -50,9 +50,9 @@ export const OverviewScene: React.FC<{
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
 						<Text bolded="Total: " text={`${reports.length} ${grammarPlurality('report', reports.length)}`} fontScheme={bodyFont} colorScheme={secondary} />
-						{Object.entries(crimeCounter).map((crimeType, crimeCount) => {     
+						{Object.entries(crimeCounter).map((crimeStat) => {     
 							return (
-								<Text bolded={`${crimeType}: `} text={`${crimeCount} ${grammarPlurality('report', crimeCount)}`} fontScheme={bodyFont} colorScheme={secondary} />
+								<Text bolded={`${crimeStat[0]}: `} text={`${crimeStat[1]} ${grammarPlurality('report', crimeStat[1])}`} fontScheme={bodyFont} colorScheme={secondary} />
 								) 
 						})}
 					

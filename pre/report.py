@@ -5,7 +5,7 @@ import config
 import random
 
 
-def fetchReports(date, chosenCrimeName):
+def fetchReports(date, chosenCrimeName, limit=12):
     
     dateStr = date.strftime('%Y-%m-%d')
     whereStatementUrlified = urllib.parse.quote_plus(f"OCC_DATE_EST >= date '{dateStr} 00:00:00' and OCC_DATE_EST < date '{dateStr} 11:59:59'")
@@ -17,7 +17,7 @@ def fetchReports(date, chosenCrimeName):
     
     reports_raw = resp.json()
     features_raw = filter_raw_report(reports_raw, chosenCrimeName)
-    features_raw = limit_count(features_raw)
+    features_raw = limit_count(features_raw, limit)
     
     return [{
         'x':r["geometry"]['x'],
@@ -35,7 +35,7 @@ def filter_raw_report(raw_reports, chosenCrimeName):
     for report in raw_reports['features']:
         if not report.get("geometry"):
             continue
-        if not (report["attributes"]["CRIME_TYPE"] in config.crimeTypes[chosenCrimeName].values()):
+        if not (report["attributes"]["CRIME_TYPE"] in config.ChosenCrimeTypes[chosenCrimeName].values()):
             continue
         n.append(report)
     return n
@@ -55,7 +55,7 @@ def remove_between_chars(string):
             
     return result
 
-def limit_count(reports, limit):
+def limit_count(list, limit):
     while len(list) > limit:
         index_to_remove = random.randint(0, len(list) - 1)
         list.pop(index_to_remove)

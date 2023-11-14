@@ -15,7 +15,7 @@ questions = [
             ),
   inquirer.List('Crime Type',
                 message="Pick Crime Type?",
-                choices=['violence', 'house', 'vehicle'],
+                choices=['violence', 'break and enter', 'vehicle theft'],
             ),
 ]
 answers = inquirer.prompt(questions)
