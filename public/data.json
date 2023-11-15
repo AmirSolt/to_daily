@@ -1,1 +1,143 @@
-{"date": "2023-11-13", "reports": [{"x": -8829434.863555128, "y": 5433356.940577412, "hour": 0, "neighborhood": "L'Amoreaux West ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8822697.249541445, "y": 5428875.0589135755, "hour": 2, "neighborhood": "Bendale-Glen Andrew ", "crimeType": "Auto Theft", "locationType": "Private Property Structure"}, {"x": -8836956.227706512, "y": 5412317.800012508, "hour": 2, "neighborhood": "Yonge-Bay Corridor ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8845264.999570217, "y": 5415713.92202173, "hour": 2, "neighborhood": "Corso Italia-Davenport ", "crimeType": "Auto Theft", "locationType": "Single Home"}, {"x": -8840833.939125316, "y": 5433319.363219799, "hour": 6, "neighborhood": "Newtonbrook East ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8814780.611668613, "y": 5432426.943430558, "hour": 10, "neighborhood": "Highland Creek ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8833063.636923755, "y": 5423691.287642572, "hour": 11, "neighborhood": "Banbury-Don Mills ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8838532.633964917, "y": 5414400.101449125, "hour": 14, "neighborhood": "Annex ", "crimeType": "Auto Theft", "locationType": "Streets, Roads, Highway"}, {"x": -8860939.171469511, "y": 5421920.068086733, "hour": 17, "neighborhood": "West Humber-Clairville ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}, {"x": -8827641.331334133, "y": 5438450.0093288785, "hour": 18, "neighborhood": "Milliken ", "crimeType": "Auto Theft", "locationType": "Parking Lot"}], "prompts": [{"type": "intro", "text": "<break time=\"0.7s\" /> November 13th, toronto city", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/intro.mp3", "relativeAudioFilePath": "audio/intro.mp3", "durationInSeconds": 2.533875, "highlightedReportIndex": -1}, {"type": "overview", "text": "<break time=\"0.7s\" /> 10 police reports of vehicle theft.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/overview.mp3", "relativeAudioFilePath": "audio/overview.mp3", "durationInSeconds": 2.815875, "highlightedReportIndex": -1}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near L'Amoreaux West  at 12am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_0.mp3", "relativeAudioFilePath": "audio/report_0.mp3", "durationInSeconds": 3.5734375, "highlightedReportIndex": 0}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Bendale-Glen Andrew  at 2am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_1.mp3", "relativeAudioFilePath": "audio/report_1.mp3", "durationInSeconds": 3.9391249999999998, "highlightedReportIndex": 1}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Yonge-Bay Corridor  at 2am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_2.mp3", "relativeAudioFilePath": "audio/report_2.mp3", "durationInSeconds": 3.6256874999999997, "highlightedReportIndex": 2}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Corso Italia-Davenport  at 2am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_3.mp3", "relativeAudioFilePath": "audio/report_3.mp3", "durationInSeconds": 3.9391249999999998, "highlightedReportIndex": 3}, {"type": "message", "text": "<break time=\"0.7s\" /> Follow for daily reports.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/message.mp3", "relativeAudioFilePath": "audio/message.mp3", "durationInSeconds": 2.1366875, "highlightedReportIndex": -1}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Newtonbrook East  at 6am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_4.mp3", "relativeAudioFilePath": "audio/report_4.mp3", "durationInSeconds": 3.4689375, "highlightedReportIndex": 4}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Highland Creek  at 10am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_5.mp3", "relativeAudioFilePath": "audio/report_5.mp3", "durationInSeconds": 3.3905624999999997, "highlightedReportIndex": 5}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Banbury-Don Mills  at 11am.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_6.mp3", "relativeAudioFilePath": "audio/report_6.mp3", "durationInSeconds": 4.461625, "highlightedReportIndex": 6}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Annex  at 2pm.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_7.mp3", "relativeAudioFilePath": "audio/report_7.mp3", "durationInSeconds": 3.051, "highlightedReportIndex": 7}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near West Humber-Clairville  at 5pm.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_8.mp3", "relativeAudioFilePath": "audio/report_8.mp3", "durationInSeconds": 3.6518125, "highlightedReportIndex": 8}, {"type": "report", "text": "<break time=\"0.7s\" /> Auto Theft near Milliken  at 6pm.", "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_9.mp3", "relativeAudioFilePath": "audio/report_9.mp3", "durationInSeconds": 3.0248749999999998, "highlightedReportIndex": 9}]}
+{
+  "date": "2023-11-14",
+  "reports": [
+    {
+      "x": -8839092.971292472,
+      "y": 5423423.018937751,
+      "hour": 1,
+      "neighborhood": "Lawrence Park North ",
+      "crimeType": "Robbery",
+      "locationType": "Convenience Store"
+    },
+    {
+      "x": -8836816.132815672,
+      "y": 5414424.186026537,
+      "hour": 1,
+      "neighborhood": "Church-Wellesley ",
+      "crimeType": "Robbery",
+      "locationType": "Apartment"
+    },
+    {
+      "x": -8827745.553733896,
+      "y": 5417506.820452743,
+      "hour": 9,
+      "neighborhood": "East End-Danforth ",
+      "crimeType": "Robbery",
+      "locationType": "TTC Subway Related"
+    },
+    {
+      "x": -8837001.713138774,
+      "y": 5413576.280396468,
+      "hour": 12,
+      "neighborhood": "Church-Wellesley ",
+      "crimeType": "Robbery",
+      "locationType": "Other Commercial / Corporate Place"
+    },
+    {
+      "x": -8837001.713138774,
+      "y": 5413576.280396468,
+      "hour": 12,
+      "neighborhood": "Church-Wellesley ",
+      "crimeType": "Robbery",
+      "locationType": "Other Commercial / Corporate Place"
+    },
+    {
+      "x": -8837426.46568449,
+      "y": 5420111.061909087,
+      "hour": 14,
+      "neighborhood": "Mount Pleasant East ",
+      "crimeType": "Robbery",
+      "locationType": "Streets, Roads, Highway"
+    },
+    {
+      "x": -8843564.51742819,
+      "y": 5413671.167648386,
+      "hour": 16,
+      "neighborhood": "Junction-Wallace Emerson ",
+      "crimeType": "Robbery",
+      "locationType": "Streets, Roads, Highway"
+    }
+  ],
+  "prompts": [
+    {
+      "type": "intro",
+      "text": "<break time=\"0.7s\" /> November 14th, toronto city",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/intro.mp3",
+      "relativeAudioFilePath": "audio/intro.mp3",
+      "durationInSeconds": 2.40325,
+      "highlightedReportIndex": -1
+    },
+    {
+      "type": "overview",
+      "text": "<break time=\"0.7s\" /> 7 police reports of violence.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/overview.mp3",
+      "relativeAudioFilePath": "audio/overview.mp3",
+      "durationInSeconds": 2.6069375,
+      "highlightedReportIndex": -1
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Lawrence Park North  at 1am.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_0.mp3",
+      "relativeAudioFilePath": "audio/report_0.mp3",
+      "durationInSeconds": 3.051,
+      "highlightedReportIndex": 0
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 1am.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_1.mp3",
+      "relativeAudioFilePath": "audio/report_1.mp3",
+      "durationInSeconds": 2.972625,
+      "highlightedReportIndex": 1
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near East End-Danforth  at 9am.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_2.mp3",
+      "relativeAudioFilePath": "audio/report_2.mp3",
+      "durationInSeconds": 3.3905624999999997,
+      "highlightedReportIndex": 2
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 12pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_3.mp3",
+      "relativeAudioFilePath": "audio/report_3.mp3",
+      "durationInSeconds": 3.3383125,
+      "highlightedReportIndex": 3
+    },
+    {
+      "type": "message",
+      "text": "<break time=\"0.7s\" /> Follow for daily reports.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/message.mp3",
+      "relativeAudioFilePath": "audio/message.mp3",
+      "durationInSeconds": 2.3718125,
+      "highlightedReportIndex": -1
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 12pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_4.mp3",
+      "relativeAudioFilePath": "audio/report_4.mp3",
+      "durationInSeconds": 3.4428124999999996,
+      "highlightedReportIndex": 4
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Mount Pleasant East  at 2pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_5.mp3",
+      "relativeAudioFilePath": "audio/report_5.mp3",
+      "durationInSeconds": 3.3905624999999997,
+      "highlightedReportIndex": 5
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Junction-Wallace Emerson  at 4pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_6.mp3",
+      "relativeAudioFilePath": "audio/report_6.mp3",
+      "durationInSeconds": 3.4689375,
+      "highlightedReportIndex": 6
+    }
+  ]
+}

@@ -41,7 +41,7 @@ export const MessageScene: React.FC<{
 				</Card>
 				<Card colorScheme={secondary}>
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
-						<Text text="Share for Safety Awareness" fontScheme={bodyFont} colorScheme={secondary} />
+						<Text text="Share to Spread Awareness" fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>
