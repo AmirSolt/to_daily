@@ -14,7 +14,7 @@ API_KEY = os.environ.get("ELEVENLABS_API_KEY")
 VOICE_NAME = "Daniel"
 FILE_TYPE = "mp3"
 MODEL_ID = "eleven_multilingual_v1"
-AUDIO_DIR = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/'
+AUDIO_DIR = '../public/audio/'
 STATIC_RELATIVE_AUDIO_DIR = 'audio/'
 # AUDIO_DIR = './audio/'
 set_api_key(API_KEY)

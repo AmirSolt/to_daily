@@ -3,7 +3,7 @@ import prompt as prmpt
 import report as rprt
 import datetime
 
-json_filepath = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/data.json'
+json_filepath = '../public/data.json'
 # json_filepath = './data.json'
 
 
