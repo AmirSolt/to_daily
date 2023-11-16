@@ -87,11 +87,11 @@ const OverviewReportMapped: React.FC<{
     >
 
       <div >
-        <CrimeIcon report={report} classOther='w-28 h-28' />
+        <CrimeIcon report={report} classOther='w-28 h-28  z-10' />
       </div>
 
       <div>
-        <Icon filename={circle1Filename} classOther='w-8 ' />
+        <Icon filename={circle1Filename} classOther='w-8 z-0' />
       </div>
 
     </div>
