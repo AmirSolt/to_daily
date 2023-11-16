@@ -3,13 +3,18 @@ import urllib.parse
 import requests
 import config
 import random
+import datetime
+import pytz
+
 
 
 def fetchReports(date, chosenCrimeName, limit=12):
     
     dateStr = date.strftime('%Y-%m-%d')
-    whereStatementUrlified = urllib.parse.quote_plus(f"OCC_DATE_EST >= date '{dateStr} 00:00:00' and OCC_DATE_EST < date '{dateStr} 11:59:59'")
-    url = f'https://services.arcgis.com/S9th0jAJ7bqgIRjw/ArcGIS/rest/services/YTD_CRIME_WM/FeatureServer/0/query?where={whereStatementUrlified}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=HOUR&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token='    
+    order_by = "HOUR"
+    query_date_str = f"REPORT_DATE_EST >= date '{dateStr} 00:00:00' and REPORT_DATE_EST < date '{dateStr} 11:59:59'"
+    whereStatementUrlified = urllib.parse.quote_plus(query_date_str)
+    url = f'https://services.arcgis.com/S9th0jAJ7bqgIRjw/ArcGIS/rest/services/YTD_CRIME_WM/FeatureServer/0/query?where={whereStatementUrlified}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields={order_by}&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token='    
     print("URL:",url)
     resp = requests.get(url)
     
@@ -20,6 +25,9 @@ def fetchReports(date, chosenCrimeName, limit=12):
     features_raw = filter_raw_report(reports_raw, chosenCrimeName)
     features_raw = limit_count(features_raw, limit)
     
+    
+    
+    
     return [{
         'x':r["geometry"]['x'],
         'y':r["geometry"]['y'],
@@ -27,8 +35,14 @@ def fetchReports(date, chosenCrimeName, limit=12):
         'neighborhood':remove_between_chars(r["attributes"]["NEIGHBOURHOOD_158"]),
         'crimeType':r["attributes"]["CRIME_TYPE"],
         'locationType':r["attributes"]["LOCATION_CATEGORY"], 
+        'reportDate':convert_timestamp(r["attributes"]["REPORT_DATE_EST"]/1000), 
+        'occurDate':convert_timestamp(r["attributes"]["OCC_DATE_EST"]/1000), 
     } for r in features_raw]
 
+
+def convert_timestamp(timestamp):
+    dt_object = datetime.datetime.fromtimestamp(timestamp, pytz.timezone('US/Eastern'))
+    return dt_object.strftime("%Y-%m-%d")
 
 
 def filter_raw_report(raw_reports, chosenCrimeName):

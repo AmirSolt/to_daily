@@ -49,7 +49,7 @@ const CrimeIcon: React.FC<{
   }
 
 	return (
-			<Img src={staticFile(filename)} className={classOther} alt="Icon" />
+			<Img src={staticFile(filename)} className={`${classOther}`} alt="Icon" />
 	);
 };
 

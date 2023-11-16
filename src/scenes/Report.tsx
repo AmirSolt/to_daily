@@ -33,7 +33,7 @@ export const ReportScene: React.FC<{
 
 			<SlideUpDown 
 				durationInFrames={durationInFrames} 
-				targetHeightRatio={0.4} 
+				targetHeightRatio={0.45} 
 				classOther="w-full flex flex-col items-center justify-center" 
 				animDelayPerc={0}>
 				<Card colorScheme={secondary}>
@@ -42,6 +42,8 @@ export const ReportScene: React.FC<{
 						<Text bolded="Area: " text={`${report.neighborhood}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Incident Type: " text={`${report.crimeType}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Location Type: " text={`${report.locationType}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Occurance Date: " text={`${report.occurDate}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Report Date: " text={`${report.reportDate}`} fontScheme={bodyFont} colorScheme={secondary} />
 					</FadeInOut>
 				</Card>
 				<Card colorScheme={tertiary}>

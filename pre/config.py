@@ -2,8 +2,7 @@
 import datetime
 import json
 
-today = datetime.date.today()
-yesterday = today - datetime.timedelta(days = 1)
+
 
 
 promptTypes = {

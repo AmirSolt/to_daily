@@ -43,7 +43,7 @@ def generatePrompts(date, reports, generate_audio, crimeTypeName):
 def get_intro_prompt(date, generate_audio):
   type_ = "intro"
   filename = f"{type_}"
-  text = f"{start_pause} {get_date_str(date, is_short_hand=False)}, toronto city"
+  text = f"{start_pause} {get_date_str(date, is_short_hand=False)}, toronto"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
     "type": type_,

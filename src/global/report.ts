@@ -6,6 +6,8 @@ export interface Report{
   neighborhood:string
   crimeType:string
   locationType:string
+  reportDate:string
+  occurDate:string
 }
 
 export const CrimeTypes = {

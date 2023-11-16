@@ -36,7 +36,7 @@ export const IntroScene: React.FC<{
 			>
 								<div>
 									<Text text={getDateStr(date, true)} fontScheme={maxFont} colorScheme={primary} />
-									<Text text={"Toronto City"} fontScheme={maxFont} colorScheme={primary} />
+									<Text text={"Toronto"} fontScheme={maxFont} colorScheme={primary} />
 								</div>
 			</SlideDown>
 

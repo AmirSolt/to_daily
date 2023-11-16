@@ -35,7 +35,7 @@ const SingleReportMapped: React.FC<{
     <div
       style={{ transform: `translate(${x}px, ${y}px)` }}
 
-      className='absolute flex flex-col justify-center items-center'
+      className={`absolute flex flex-col justify-center items-center ${isHighlighted? 'z-10':'z-0'} `}
     >
 
       {isHighlighted ?
@@ -52,11 +52,11 @@ const SingleReportMapped: React.FC<{
       {isHighlighted ?
         (
           <div>
-            <Icon filename={circle2Filename} classOther='w-8' />
+            <Icon filename={circle2Filename} classOther='w-8 ' />
           </div>
         ) : (
           <div>
-            <Icon filename={circle1Filename} classOther='w-8' />
+            <Icon filename={circle1Filename} classOther='w-8 ' />
           </div>
         )}
 
@@ -91,7 +91,7 @@ const OverviewReportMapped: React.FC<{
       </div>
 
       <div>
-        <Icon filename={circle1Filename} classOther='w-8' />
+        <Icon filename={circle1Filename} classOther='w-8 ' />
       </div>
 
     </div>

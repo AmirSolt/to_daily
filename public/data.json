@@ -2,28 +2,44 @@
   "date": "2023-11-14",
   "reports": [
     {
-      "x": -8839092.971292472,
-      "y": 5423423.018937751,
-      "hour": 1,
-      "neighborhood": "Lawrence Park North ",
-      "crimeType": "Robbery",
-      "locationType": "Convenience Store"
+      "x": -8819182.121828074,
+      "y": 5427711.605883748,
+      "hour": 0,
+      "neighborhood": "Golfdale-Cedarbrae-Woburn ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Retirement Home",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-10-22"
     },
     {
-      "x": -8836816.132815672,
-      "y": 5414424.186026537,
-      "hour": 1,
-      "neighborhood": "Church-Wellesley ",
-      "crimeType": "Robbery",
-      "locationType": "Apartment"
+      "x": -8854153.96892056,
+      "y": 5424330.245218226,
+      "hour": 4,
+      "neighborhood": "Pelmo Park-Humberlea ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Apartment",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-10"
     },
     {
-      "x": -8827745.553733896,
-      "y": 5417506.820452743,
-      "hour": 9,
-      "neighborhood": "East End-Danforth ",
-      "crimeType": "Robbery",
-      "locationType": "TTC Subway Related"
+      "x": -8843809.786553783,
+      "y": 5430458.833595721,
+      "hour": 11,
+      "neighborhood": "Westminster-Branson ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Schools During Un-Supervised Activity",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-09"
+    },
+    {
+      "x": -8820373.914862268,
+      "y": 5428966.083842733,
+      "hour": 11,
+      "neighborhood": "Woburn North ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Schools During Supervised Activity",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-12"
     },
     {
       "x": -8837001.713138774,
@@ -31,7 +47,9 @@
       "hour": 12,
       "neighborhood": "Church-Wellesley ",
       "crimeType": "Robbery",
-      "locationType": "Other Commercial / Corporate Place"
+      "locationType": "Other Commercial / Corporate Place",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
     },
     {
       "x": -8837001.713138774,
@@ -39,72 +57,118 @@
       "hour": 12,
       "neighborhood": "Church-Wellesley ",
       "crimeType": "Robbery",
-      "locationType": "Other Commercial / Corporate Place"
+      "locationType": "Other Commercial / Corporate Place",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
     },
     {
-      "x": -8837426.46568449,
-      "y": 5420111.061909087,
-      "hour": 14,
-      "neighborhood": "Mount Pleasant East ",
-      "crimeType": "Robbery",
-      "locationType": "Streets, Roads, Highway"
+      "x": -8818790.81680252,
+      "y": 5425731.01690454,
+      "hour": 15,
+      "neighborhood": "Scarborough Village ",
+      "crimeType": "Shooting",
+      "locationType": null,
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
     },
     {
-      "x": -8843564.51742819,
-      "y": 5413671.167648386,
-      "hour": 16,
-      "neighborhood": "Junction-Wallace Emerson ",
+      "x": -8843820.685290528,
+      "y": 5415792.78963733,
+      "hour": 17,
+      "neighborhood": "Corso Italia-Davenport ",
       "crimeType": "Robbery",
-      "locationType": "Streets, Roads, Highway"
+      "locationType": "Streets, Roads, Highway",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
+    },
+    {
+      "x": -8851158.391855743,
+      "y": 5418883.677955225,
+      "hour": 18,
+      "neighborhood": "Weston ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Pharmacy",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-11"
+    },
+    {
+      "x": -8827450.101646706,
+      "y": 5420462.596310387,
+      "hour": 18,
+      "neighborhood": "O'Connor-Parkview ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Single Home",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-12"
+    },
+    {
+      "x": -8841674.225950459,
+      "y": 5429499.836270843,
+      "hour": 21,
+      "neighborhood": "Willowdale West ",
+      "crimeType": "Sexual Violation",
+      "locationType": "Single Home",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
+    },
+    {
+      "x": -8833183.290290592,
+      "y": 5412803.618139809,
+      "hour": 23,
+      "neighborhood": "South Riverdale ",
+      "crimeType": "Robbery",
+      "locationType": "Convenience Store",
+      "reportDate": "2023-11-13",
+      "occurDate": "2023-11-13"
     }
   ],
   "prompts": [
     {
       "type": "intro",
-      "text": "<break time=\"0.7s\" /> November 14th, toronto city",
+      "text": "<break time=\"0.7s\" /> November 14th, toronto",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/intro.mp3",
       "relativeAudioFilePath": "audio/intro.mp3",
-      "durationInSeconds": 2.40325,
+      "durationInSeconds": 1.8024375,
       "highlightedReportIndex": -1
     },
     {
       "type": "overview",
-      "text": "<break time=\"0.7s\" /> 7 police reports of violence.",
+      "text": "<break time=\"0.7s\" /> 12 police reports of violence.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/overview.mp3",
       "relativeAudioFilePath": "audio/overview.mp3",
-      "durationInSeconds": 2.6069375,
+      "durationInSeconds": 2.6330625,
       "highlightedReportIndex": -1
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near Lawrence Park North  at 1am.",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Golfdale-Cedarbrae-Woburn  at 12am.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_0.mp3",
       "relativeAudioFilePath": "audio/report_0.mp3",
-      "durationInSeconds": 3.051,
+      "durationInSeconds": 3.8608124999999998,
       "highlightedReportIndex": 0
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 1am.",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Pelmo Park-Humberlea  at 4am.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_1.mp3",
       "relativeAudioFilePath": "audio/report_1.mp3",
-      "durationInSeconds": 2.972625,
+      "durationInSeconds": 3.6518125,
       "highlightedReportIndex": 1
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near East End-Danforth  at 9am.",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Westminster-Branson  at 11am.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_2.mp3",
       "relativeAudioFilePath": "audio/report_2.mp3",
-      "durationInSeconds": 3.3905624999999997,
+      "durationInSeconds": 3.2860625,
       "highlightedReportIndex": 2
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 12pm.",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Woburn North  at 11am.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_3.mp3",
       "relativeAudioFilePath": "audio/report_3.mp3",
-      "durationInSeconds": 3.3383125,
+      "durationInSeconds": 2.7375,
       "highlightedReportIndex": 3
     },
     {
@@ -112,7 +176,7 @@
       "text": "<break time=\"0.7s\" /> Follow for daily reports.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/message.mp3",
       "relativeAudioFilePath": "audio/message.mp3",
-      "durationInSeconds": 2.3718125,
+      "durationInSeconds": 2.1889374999999998,
       "highlightedReportIndex": -1
     },
     {
@@ -120,24 +184,64 @@
       "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 12pm.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_4.mp3",
       "relativeAudioFilePath": "audio/report_4.mp3",
-      "durationInSeconds": 3.4428124999999996,
+      "durationInSeconds": 3.4689375,
       "highlightedReportIndex": 4
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near Mount Pleasant East  at 2pm.",
+      "text": "<break time=\"0.7s\" /> Robbery near Church-Wellesley  at 12pm.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_5.mp3",
       "relativeAudioFilePath": "audio/report_5.mp3",
-      "durationInSeconds": 3.3905624999999997,
+      "durationInSeconds": 3.2338750000000003,
       "highlightedReportIndex": 5
     },
     {
       "type": "report",
-      "text": "<break time=\"0.7s\" /> Robbery near Junction-Wallace Emerson  at 4pm.",
+      "text": "<break time=\"0.7s\" /> Shooting near Scarborough Village  at 3pm.",
       "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_6.mp3",
       "relativeAudioFilePath": "audio/report_6.mp3",
-      "durationInSeconds": 3.4689375,
+      "durationInSeconds": 3.5211875,
       "highlightedReportIndex": 6
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near Corso Italia-Davenport  at 5pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_7.mp3",
+      "relativeAudioFilePath": "audio/report_7.mp3",
+      "durationInSeconds": 3.7040625,
+      "highlightedReportIndex": 7
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Weston  at 6pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_8.mp3",
+      "relativeAudioFilePath": "audio/report_8.mp3",
+      "durationInSeconds": 2.972625,
+      "highlightedReportIndex": 8
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near O'Connor-Parkview  at 6pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_9.mp3",
+      "relativeAudioFilePath": "audio/report_9.mp3",
+      "durationInSeconds": 3.7040625,
+      "highlightedReportIndex": 9
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Sexual Violation near Willowdale West  at 9pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_10.mp3",
+      "relativeAudioFilePath": "audio/report_10.mp3",
+      "durationInSeconds": 4.06975,
+      "highlightedReportIndex": 10
+    },
+    {
+      "type": "report",
+      "text": "<break time=\"0.7s\" /> Robbery near South Riverdale  at 11pm.",
+      "audioFilePath": "C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/audio/report_11.mp3",
+      "relativeAudioFilePath": "audio/report_11.mp3",
+      "durationInSeconds": 4.2265,
+      "highlightedReportIndex": 11
     }
   ]
 }

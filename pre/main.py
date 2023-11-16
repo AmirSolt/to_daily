@@ -1,6 +1,7 @@
 import config
 import prompt as prmpt
 import report as rprt
+import datetime
 
 json_filepath = 'C:/Users/killo/OneDrive/Desktop/TO_DAILY/public/data.json'
 # json_filepath = './data.json'
@@ -23,8 +24,8 @@ generate_audio = True if answers['Audio'] == 'Yes' else False
 crimeTypeName = answers['Crime Type']
 
 
-
-yesterday = config.yesterday
+today = datetime.date.today()
+yesterday = today - datetime.timedelta(days = 1)
 reports = rprt.fetchReports(yesterday, crimeTypeName)
 prompts = prmpt.generatePrompts(yesterday, reports, generate_audio, crimeTypeName)
 
