@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, staticFile} from 'remotion';
-import {footerFont, primary, secondary, bodyFont, tertiary, titleFont, headerFont} from '../global/stylesConfig';
+import {footerFont, primary, secondary, bodyFont, tertiary} from '../global/stylesConfig';
 import {Report} from '../global/report';
 import Card from '../comp/Card';
 import FadeInOut from '../comp/FadeInOut'
@@ -11,6 +11,12 @@ import { convertTo12 } from '../global/dateHelper';
 import { Prompt } from '../global/prompt';
 
 
+function cencorWord(word:string){
+	if("sexual violation" == word.toLocaleLowerCase()){
+		return "S*xual Violation"
+	}
+	return word
+}
 
 export const ReportScene: React.FC<{
   reportIndex:number|null,
@@ -40,7 +46,7 @@ export const ReportScene: React.FC<{
 					<FadeInOut durationInFrames={durationInFrames} classOther="w-full flex flex-col items-start justify-center gap-4 pt-4 pb-8" animDelayPerc={0.04}>
 						<Text bolded="Time: " text={`${convertTo12(report.hour)}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Area: " text={`${report.neighborhood}`} fontScheme={bodyFont} colorScheme={secondary} />
-						<Text bolded="Incident Type: " text={`${report.crimeType}`} fontScheme={bodyFont} colorScheme={secondary} />
+						<Text bolded="Incident Type: " text={`${cencorWord(report.crimeType)}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Location Type: " text={`${report.locationType}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Occurance Date: " text={`${report.occurDate}`} fontScheme={bodyFont} colorScheme={secondary} />
 						<Text bolded="Report Date: " text={`${report.reportDate}`} fontScheme={bodyFont} colorScheme={secondary} />

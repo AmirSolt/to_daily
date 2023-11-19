@@ -8,7 +8,7 @@ import pytz
 
 
 
-def fetchReports(date, chosenCrimeName, limit=12):
+def fetchReports(date, chosenCrimeName, limit=15):
     
     dateStr = date.strftime('%Y-%m-%d')
     order_by = "HOUR"
@@ -23,7 +23,7 @@ def fetchReports(date, chosenCrimeName, limit=12):
     
     reports_raw = resp.json()
     features_raw = filter_raw_report(reports_raw, chosenCrimeName)
-    features_raw = limit_count(features_raw, limit)
+    features_raw = limit_count(features_raw, random.randrange(limit,limit+8,1))
     
     
     
@@ -50,7 +50,7 @@ def filter_raw_report(raw_reports, chosenCrimeName):
     for report in raw_reports['features']:
         if not report.get("geometry"):
             continue
-        if not (report["attributes"]["CRIME_TYPE"] in config.ChosenCrimeTypes[chosenCrimeName].values()):
+        if not (report["attributes"]["CRIME_TYPE"] in config.ChosenCrimeTypes["crimeTypes"][chosenCrimeName].values()):
             continue
         n.append(report)
     return n

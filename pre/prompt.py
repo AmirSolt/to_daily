@@ -28,7 +28,7 @@ end_pause = 0.7
 def generatePrompts(date, reports, generate_audio, crimeTypeName):
   messageAfterReports = 4
   
-  reportPrompts = [get_report_prompt(date, r, i, generate_audio) for i, r in enumerate(reports)]
+  reportPrompts = [get_report_prompt(date, r, i, generate_audio, crimeTypeName) for i, r in enumerate(reports)]
 
   return [
     get_intro_prompt(date, generate_audio),
@@ -68,9 +68,11 @@ def get_overview_prompt(date, reports, generate_audio, crimeTypeName):
     "highlightedReportIndex": -1
   }
 
-def get_report_prompt(date, report, report_index, generate_audio):
+def get_report_prompt(date, report, report_index, generate_audio, crimeTypeName):
   type_ = "report"
-  text = f"{start_pause} {report['crimeType']} near {report['neighborhood']} at {convert_to_12(report['hour'])}."
+  crime_type = censor_word(report['crimeType'])
+  crime_type = "" if config.ChosenCrimeTypes[crimeTypeName] else crime_type 
+  text = f"{start_pause} {crime_type} near {report['neighborhood']} at {convert_to_12(report['hour'])}."
   filename = f"{type_}_{report_index}"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)
   return {
@@ -97,6 +99,10 @@ def get_message_prompt(date, generate_audio):
   }
 
 
+def censor_word(word:str):
+  if "sexual violation" == word.lower():
+    return "S/V"
+  return word
 
 def get_ordinal_suffix(n):
     if n > 3 and n < 21:

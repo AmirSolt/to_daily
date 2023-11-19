@@ -27,16 +27,25 @@ CrimeTypes = {
 
 ChosenCrimeTypes = {
   'violence': {
-    'sexualViolation':CrimeTypes['sexualViolation'],
-    'robbery':CrimeTypes['robbery'],
-    'shooting':CrimeTypes['shooting'],
-    'homicide':CrimeTypes['homicide'],
+    "voiceCrimeType": True,
+    "crimeTypes":{
+      'sexualViolation':CrimeTypes['sexualViolation'],
+      'robbery':CrimeTypes['robbery'],
+      'shooting':CrimeTypes['shooting'],
+      'homicide':CrimeTypes['homicide'],
+    }
   },
     'break and enter': {
-      'breakAndEnter':CrimeTypes['breakAndEnter'],
+      "voiceCrimeType": False,
+      "crimeTypes":{
+        'breakAndEnter':CrimeTypes['breakAndEnter'],
+      }
   },
     'vehicle theft':{
-      'autoTheft':CrimeTypes['autoTheft'],
+      "voiceCrimeType": False,
+      "crimeTypes":{
+        'autoTheft':CrimeTypes['autoTheft'],
+      }
   }
 }
 
