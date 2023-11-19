@@ -50,7 +50,7 @@ def filter_raw_report(raw_reports, chosenCrimeName):
     for report in raw_reports['features']:
         if not report.get("geometry"):
             continue
-        if not (report["attributes"]["CRIME_TYPE"] in config.ChosenCrimeTypes["crimeTypes"][chosenCrimeName].values()):
+        if not (report["attributes"]["CRIME_TYPE"] in config.ChosenCrimeTypes[chosenCrimeName]["crimeTypes"].values()):
             continue
         n.append(report)
     return n

@@ -71,7 +71,7 @@ def get_overview_prompt(date, reports, generate_audio, crimeTypeName):
 def get_report_prompt(date, report, report_index, generate_audio, crimeTypeName):
   type_ = "report"
   crime_type = censor_word(report['crimeType'])
-  crime_type = "" if config.ChosenCrimeTypes[crimeTypeName] else crime_type 
+  crime_type = crime_type if config.ChosenCrimeTypes[crimeTypeName]["voiceCrimeType"] else "" 
   text = f"{start_pause} {crime_type} near {report['neighborhood']} at {convert_to_12(report['hour'])}."
   filename = f"{type_}_{report_index}"
   relativeAudioFilePath, filepath, duration_in_seconds = generate_tts(text, filename, generate_audio)

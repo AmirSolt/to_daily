@@ -8,6 +8,7 @@
   "scripts": {
     "start": "remotion studio",
     "build": "remotion render MyComp out/filename.mp4",
+    "auto": "remotion render MyComp",
     "upgrade": "remotion upgrade",
     "test": "eslint src --ext ts,tsx,js,jsx && tsc"
   },

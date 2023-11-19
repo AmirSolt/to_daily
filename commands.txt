@@ -1,0 +1,15 @@
+cd pre
+python main.py -v 1 -c 0
+cd ..
+npm run auto -- out/vil.mp4 
+cd .
+cd pre
+python main.py -v 1 -c 1
+cd ..
+npm run auto -- out/bne.mp4 
+cd .
+cd pre
+python main.py -v 1 -c 2
+cd ..
+npm run auto -- out/at.mp4 
+cd .

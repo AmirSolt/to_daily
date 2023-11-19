@@ -7,7 +7,7 @@ import {Report} from './global/report';
 import preData from '../public/data.json'
 
 
-// cd pre && python main.py
+
 
 const date = new Date(`${preData.date} 00:00:00`);
 const reports:Report[] = preData.reports
