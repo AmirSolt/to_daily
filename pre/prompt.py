@@ -101,7 +101,7 @@ def get_message_prompt(date, generate_audio):
 
 def censor_word(word:str):
   if "sexual violation" == word.lower():
-    return "S/V"
+    return "S Violation"
   return word
 
 def get_ordinal_suffix(n):

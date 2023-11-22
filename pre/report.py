@@ -13,6 +13,7 @@ def fetchReports(date, chosenCrimeName, limit=15):
     dateStr = date.strftime('%Y-%m-%d')
     order_by = "HOUR"
     query_date_str = f"REPORT_DATE_EST >= date '{dateStr} 00:00:00' and REPORT_DATE_EST < date '{dateStr} 11:59:59'"
+    print(">>>>",query_date_str)
     whereStatementUrlified = urllib.parse.quote_plus(query_date_str)
     url = f'https://services.arcgis.com/S9th0jAJ7bqgIRjw/ArcGIS/rest/services/YTD_CRIME_WM/FeatureServer/0/query?where={whereStatementUrlified}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields={order_by}&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token='    
     print("URL:",url)
@@ -26,7 +27,7 @@ def fetchReports(date, chosenCrimeName, limit=15):
     features_raw = limit_count(features_raw, random.randrange(limit,limit+8,1))
     
     
-    
+    print(">>",len(features_raw))
     
     return [{
         'x':r["geometry"]['x'],
